@@ -20,7 +20,7 @@ public class Book {
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
     inverseJoinColumns = @JoinColumn(name = "author_id"))
-    private Set<Author> authors;
+    private Set<Author> authors = new HashSet<>();
 
     public Book() {
     }
@@ -35,7 +35,7 @@ public class Book {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
-        this.authors = new HashSet<>();
+        this.authors = authors;
     }
 
     public Long getId() {
